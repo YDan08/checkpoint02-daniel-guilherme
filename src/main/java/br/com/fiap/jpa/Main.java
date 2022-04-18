@@ -25,7 +25,6 @@ public class Main {
 		modeloService.cadastrar(modelo1);
 		acessorioService.cadastrar(acessorio1);
 		acessorioService.cadastrar(acessorio2);
-		carroService.cadastrar(carro1);
 
 		carroService.cadastrarComModelo(carro1, modelo1);
 		
