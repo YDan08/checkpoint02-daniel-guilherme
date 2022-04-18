@@ -5,11 +5,10 @@ import java.util.List;
 
 import br.com.fiap.jpa.dao.impl.AcessorioDAOImpl;
 import br.com.fiap.jpa.dao.impl.CarroDAOImpl;
-import br.com.fiap.jpa.dao.impl.ModeloDAOImpl;
+
 import br.com.fiap.jpa.entity.Acessorio;
 
 import br.com.fiap.jpa.entity.Carro;
-import br.com.fiap.jpa.entity.Modelo;
 import br.com.fiap.jpa.service.GenericService;
 
 public class CarroServiceImpl extends GenericService<Carro, Long> {
@@ -18,7 +17,6 @@ public class CarroServiceImpl extends GenericService<Carro, Long> {
 	
 	private CarroDAOImpl carroDAO;
 	private AcessorioDAOImpl acessorioDAO;
-	private ModeloDAOImpl modeloDAO;
 	
 	private CarroServiceImpl() {
 		carroDAO = CarroDAOImpl.getInstance();
@@ -42,19 +40,6 @@ public class CarroServiceImpl extends GenericService<Carro, Long> {
 			e.printStackTrace();
 			getEntityManager().getTransaction().rollback();
 		} finally {
-			closeEntityManager();
-		}
-	}
-	
-	public void cadastrarComModelo(Carro carro, Modelo modelo) {
-		try {
-			modeloDAO.salvar(modelo, getEntityManager());
-			carro.setModelo(modelo);
-			carroDAO.salvar(carro, getEntityManager());
-		}catch (Exception e) {
-			e.printStackTrace();
-			getEntityManager().getTransaction().rollback();
-		}finally {
 			closeEntityManager();
 		}
 	}

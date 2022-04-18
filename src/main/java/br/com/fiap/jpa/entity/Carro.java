@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,11 +47,10 @@ public class Carro implements Serializable {
 	@Column(name = "ds_chassi", length = 17, nullable = false)
 	private String chassi;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
-		name = "tb_carro_acessorio",
-		joinColumns = @JoinColumn(name = "carro_id"),
-		inverseJoinColumns = @JoinColumn(name = "acessorio_id")
+		name = "tb_carro_acessorio"
+		
 	)
 	private List<Acessorio> acessorios;
 	
@@ -116,7 +116,8 @@ public class Carro implements Serializable {
 		return "\nPlaca: " + this.getPlaca() 
 			+ "\nCor: " + this.getCor()
 			+ "\nChassi: " + this.getChassi()
-			+ this.getModelo();
+			+ this.getModelo()
+			+ this.getAcessorios();
 	}
 
 }

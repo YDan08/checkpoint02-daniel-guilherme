@@ -26,7 +26,7 @@ public class Main {
 		acessorioService.cadastrar(acessorio1);
 		acessorioService.cadastrar(acessorio2);
 
-		carroService.cadastrarComModelo(carro1, modelo1);
+		carroService.cadastrar(carro1);
 		
 		carroService.Juntar(carro1.getId(), acessorio1.getId());
 		carroService.Juntar(carro1.getId(), acessorio2.getId());
