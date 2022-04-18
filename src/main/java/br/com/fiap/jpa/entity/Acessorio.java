@@ -65,7 +65,7 @@ public class Acessorio implements Serializable {
 	@Override
 	public String toString() {
 		
-		return "\nDescricao: " + this.getDescricao();
+		return "\nAcessorio: " + this.getDescricao();
 	}
 
 }
