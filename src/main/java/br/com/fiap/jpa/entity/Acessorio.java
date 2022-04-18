@@ -28,10 +28,10 @@ public class Acessorio implements Serializable {
 	}
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "modelo")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "acessorio")
 	private Long id;
 	
-	@Column(name = "ds_modelo", nullable = false)
+	@Column(name = "ds_acessorio", nullable = false)
 	private String descricao;
 	
 	@ManyToMany(mappedBy="acessorios")
